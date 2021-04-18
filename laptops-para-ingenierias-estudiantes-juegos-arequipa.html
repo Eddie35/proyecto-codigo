@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>	
+	<link rel="stylesheet" type="text/css" href="css/formulario.css">
+	<title>Computadoras Arequipa</title>	
+</head>
+<body text-aling=center;>
+	<h1>Computador que debe de comprar segun su presupuesto</h1>
+	<form action="que-computadora-debo-comprar.php" method="post" name="lugares" >
+	<div id="form">	        
+		&iquest;En que lugares tiene plaenado usar la computadora?<br>
+		<input type="checkbox" name="casa" value="1">
+		Casa<br>
+		<input type="checkbox" name="universidad" value="3">
+		Universidad o colegio<br>		
+		<input type="checkbox" name="oficina" value="5" >
+		Oficina<br>					
+	</div>	
+	
+	<div id="form">	
+	    &iquest;Cuanto desea invertir en la compra de la pc?<br>
+		<select size="1" name="pc">	
+			<option selected value="1">1000 a 1500</option>
+			<option selected value="2">1500 a 2000</option>
+			<option selected value="3">2000 a 2500</option>			
+		</select>	
+		<br>
+		<br>
+		<input type="submit" value="ver">	   
+   </div>
+   </form>
+   
+   <br><br><br><h1>Computador que debe de comprar segun el uso destinado</h1>
+   <form action="que-computadora-debo-comprar.php" method="post" name="lugares" >
+   <div id="form">	        
+		&iquest;En que lugares tiene plaenado usar la computadora?<br>
+		<input type="checkbox" name="casa2" value="1">
+		Casa<br>
+		<input type="checkbox" name="universidad2" value="3">
+		Universidad o colegio<br>		
+		<input type="checkbox" name="oficina2" value="5" >
+		Oficina<br>					
+   </div>			
+   <div id="form">    
+	    &iquest;Para que tipo de uso requiere el computador?<br>
+		<input type="radio" name="uso" value="estudio" onclick="frmEstudio()">
+		Estudios<br>
+		<div id="subForm"></div>
+		<input type="radio" name="uso" value="trabajo" onclick="frmTrabajo()">
+		Trabajo<br>
+		<div id="subFormTrabajos"></div>
+		<input type="radio" name="ingTrabajo" value="3">
+		Juegos<br>			
+		<br>		
+		<input type="submit" value="ver">	   
+	</div>
+ 	</form>
+	 <script>
+
+		function frmEstudio()
+		{		
+		var respuestas = ["Ingenierias", "Diseno Grafico", "Animacon 3D", "Otros"]	
+		var valores = ["ingenierias", "2", "3", "1"]		
+		var pregunta= 'Para que estudio utilizara el computador?<br>'
+		var txt_respuestas="";
+		for(var i=0; i<4; i++)
+			{				  
+				if(i==0)
+				{
+					txt_respuestas += '\n\n<input type="radio" name="ingTrabajo" value="'+valores[i]+'" onclick=frmIngenierias()><label>'+respuestas[i]+'</label><br><div id="subFormIngenierias"></div>';
+				}	
+				else
+				{	
+					txt_respuestas += '\n\n<input type="radio" name="ingTrabajo" value="'+valores[i]+'"><label>'+respuestas[i]+'</label><br>';
+				}	
+			}
+		document.getElementById("subForm").innerHTML = pregunta + txt_respuestas;
+		}
+
+		function frmTrabajo()
+		{		
+		var respuestas = ["Ingenierias", "Diseno Grafico", "Animacon 3D", "Otros"]	
+		var valores = ["ingenierias", "2", "3", "1"]		
+		var pregunta= 'Para que Trabajo utilizara el computador?<br>'
+		var txt_respuestas="";
+		for(var i=0; i<4; i++)
+			{
+				if(i==0)
+				{
+					txt_respuestas += '\n\n<input type="radio" name="ingTrabajo" value="'+valores[i]+'" onclick=frmIngenieriasT()><label>'+respuestas[i]+'</label><br><div id="subFormIngenieriasT"></div>';
+				}	
+				else
+				{	
+				txt_respuestas += '\n\n<input type="radio" name="ingTrabajo" value="'+valores[i]+'"><label>'+respuestas[i]+'</label><br>';
+				}
+			}
+		document.getElementById("subFormTrabajos").innerHTML = pregunta + txt_respuestas;
+		}
+
+		function frmIngenierias()
+		{		
+		var respuestas = ["Civil", "Arquitectura", "Otros"]	
+		var valores = ["3", "3", "1"]		
+		var txt_respuestas="";
+		var pregunta = 'Que ingenieria estudia?<br>'	
+		for(i in respuestas)
+			{
+				txt_respuestas += '\n\n<input type="radio" name="ingTrabajo" value="'+valores[i]+'"><label>'+respuestas[i]+'</label><br>';
+			}
+		document.getElementById("subFormIngenierias").innerHTML = pregunta + txt_respuestas;
+		}
+
+		function frmIngenieriasT()
+		{		
+		var respuestas = ["Civil", "Arquitectura", "Otros"]	
+		var valores = ["3", "3", "1"]		
+		var pregunta= 'En que ingenieria trabaja?<br>'
+		var txt_respuestas="";
+		for(i in respuestas)
+			{
+				txt_respuestas += '\n\n<input type="radio" name="ingTrabajo" value="'+valores[i]+'"><label>'+respuestas[i]+'</label><br>';
+			}
+		document.getElementById("subFormIngenieriasT").innerHTML = pregunta + txt_respuestas;
+		}	
+	</script>
+</body>
+</html>
